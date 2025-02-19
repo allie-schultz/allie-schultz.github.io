@@ -1,0 +1,286 @@
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* GENERAL STYLING */
+
+/* BODY */
+body {
+    margin: 0%;
+}
+
+/* HEADING 1 ELEMENTS */
+h1 {
+    text-transform: uppercase;
+    font-family: 'RetroscapeRegular';
+    text-align: center;
+    margin-top: 3%;
+    color: #d7005c;
+    transition: transform 1s;
+}
+ /* HEADING 1 HOVER */
+ h1:hover{
+    filter: hue-rotate(-15deg);
+    transform: scale(1.1);
+    transition: transform 1s;
+ }
+
+ /* PORTFOLIO TITLE */
+ .title{
+    color: #d7005c;
+    font-size: 4em;
+    font-weight: bold;
+ }
+
+ /* PARAGRAPH ELEMENTS */
+ p{
+    font-family: "VT323", serif;
+    text-align: justify;
+    letter-spacing: 2px;
+    font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+ }
+
+ /* CENTER CLASS */
+ .center{
+    text-align: center;
+ }
+
+ .center:hover{
+    transition: transform 2s;
+    transform: scale(1.1);
+ }
+
+  /* ANCHOR ELEMENTS */
+  a{
+    color: #F25C05;
+ }
+
+ 
+ /* IMAGE ELEMENTS */
+ img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: 340px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 1s;
+ }
+
+ img:hover{
+    transition: transform 1s;
+	transform: scale(1.1);
+ }
+
+ /* IMAGE RESPONSIVE */
+ @media screen and (max-width: 576px) {
+    img {
+        height: 100px;
+        margin-top: 150px;
+    }
+}
+
+/* FOOTER */
+footer{
+    padding: 2%;
+}
+
+/* END GENERAL STYLING */
+
+
+/* NAVBAR STYLING */
+.navbar{
+    overflow: hidden;
+    background-color: #212626;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    -webkit-animation: moveNav 5s;
+    animation: moveNav 5s;
+}
+
+@keyframes moveNav {
+    from {left: -100vw;}
+    to {left: 0vw;}
+}
+
+/* NAVBAR LINKS */
+.navbar a {
+    float: left;
+    display: block;
+    color:  #2ad404;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: "VT323", serif;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+    -webkit-animation: moveNavText 5.75s;
+    animation: moveNavText 5.75s;
+    
+    
+}
+
+@keyframes moveNavText {
+    from {top: -100vw;}
+    to {top: 0vw;}
+}
+
+@media screen and (max-width: 576px) {
+    .navbar a{
+        width: 25%; 
+        font-size: 12px;
+    }
+}
+
+/* NAVBAR HOVER EFFECTS */
+.navbar a:hover{  
+    text-decoration: underline;
+    text-decoration-color: #03A6A6;
+    transition: text-decoration 1s ease;
+    
+}
+
+.navbar a.active{
+    background-color: rgb(0, 0, 0);
+}
+
+/* END OF NAVBAR STYLING */
+
+/* TOP IMAGE STYLING */
+.img_box{
+    position: fixed;
+    right: 0;
+    top: 0;
+    min-width: 100%;
+    z-index: -1;
+    overflow: hidden;
+ }
+
+#bg_img{
+   width: 100%;
+   border-radius: 0px;
+   height: 30rem;
+   filter: blur(3px);
+   object-fit: cover;
+}
+
+@media screen and (max-width: 576px) {
+    #bg_img {
+        display: none;
+    }
+}
+
+/* TEXT OVER VIDEO */
+.img_text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d7005c;
+    width: 100%;
+    height:30rem;
+    padding: 20px;
+    position: relative;
+    -webkit-animation: moveVideoText 5.75s;
+    animation: moveVideoText 5.75s;
+}
+
+@keyframes moveVideoText {
+    from {top: -100vw;}
+    to {top: 0vw;}
+}
+/* END TOP IMAGE STYLING */
+
+/* TABLE SIZING */
+*{
+    box-sizing: border-box;
+}
+
+.col1{
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 3%;
+    height: 400px;
+    background-color: 
+    #78E0A3;
+}
+
+@media screen and (max-width: 576px) {
+    .Column_1 {
+        overflow: auto;
+    }
+}
+
+.col2{
+    float: left;
+    width: 50%;
+    padding: 10px;
+    padding-top: 1.9%;
+    height: 400px;
+    background-color: #674894;
+}
+
+.col_tall {
+    padding-top: 3.5%;
+    height: 450px;
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+/* END TABLE STYLING */
+
+/* CONTACT FORM STYLING */
+input[type=text] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    resize: vertical;
+    font-family: "VT323", serif;
+}
+
+input[type=text]:hover{
+    box-shadow: 0 0 5px #044BD9 inset;
+}
+
+input[type=submit]{
+    background-color: #03A6A6;
+    color: black;
+    font-size: 20px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "VT323", serif;
+    letter-spacing: 2px;
+    transition: transform 1.5s;
+}
+
+input[type=submit]:hover {
+    background-color: #d7005c;
+    color: antiquewhite;
+    transform: scale(1.1);
+    transition: transform 1.5s;
+}
+
+form{
+    border-radius: 5px;
+    background-color: f2f2f2;
+    padding: 10px;
+    font-family: "VT323", serif;
+}
+/* END CONTACT FORM STYLING */
+
+   
+   
