@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 /* GENERAL STYLING */
 
 /* BODY */
@@ -10,7 +11,7 @@ body {
 /* HEADING 1 ELEMENTS */
 h1 {
     text-transform: uppercase;
-    font-family: 'RetroscapeRegular';
+    font-family: "Press Start 2P", serif;
     text-align: center;
     margin-top: 3%;
     color: #d7005c;
