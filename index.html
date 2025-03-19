@@ -31,16 +31,58 @@
     <!--NAVBAR-->
     <div class="navbar">
         <a class="active" href="#Home">Home</a>
+        <a href="#Slideshow">Slideshow</a>
         <a href="#About">About</a>
         <a href="#GitHub">GitHub</a>
-        <a href="#Contact">Contact</a>
+        <a onclick="openForm()" ondblclick="closeForm()" class="contact">Contact</a>
     </div>
 
+<!-- SLIDESHOW SECTION -->
+<div id="Slideshow">
+    <div id="Slideshow_Background"> 
+        <div id="Slideshow_Container">
+            <!-- Slide 1 of 6 -->
+            <div class="mySlides fade">
+                <img class="Slideshow_Images" src="images/color_square.png" alt="Picture of yourself">
+                <div class="text">I'm available to assist you on your project!</div>
+            </div>
+            <!-- Slide 2 of 6 -->
+            <div class="mySlides fade">
+                <img class="Slideshow_Images" src="images/pink_keyboard.jpg" alt="HTML, CSS, and JS logos"> 
+                <div class="text">I am a full-stack software developer,<br> trained in:<br>HTML, CSS, JavaScript,</div>
+            </div>
+            <!-- Slide 3 of 6 -->
+            <div class="mySlides fade">
+                <img class="Slideshow_Images" src="images/video_game.jpg" alt="Python logo">
+                <div class="text"> and trained in video game development.</div>
+            </div>
+            <!-- Slide 4 of 4 -->
+            <div class="mySlides fade">
+                <img class="Slideshow_Images" src="images/blue_phone.jpg" alt="Replace with a picture of your choosing"> 
+                <div class="text"><a class="white-text contact" onclick="openForm()">Contact me now!</a></div> 
+            </div>
+            <!-- Previous and next buttons -->
+            <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br> <!-- Adds a space between the slideshow images and the dots -->
+
+        <!-- Slideshow dots (these are another way for users to navigate through the slideshow) -->
+        <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span> 
+            <span class="dot" onclick="currentSlide(4)"></span>  
+        </div>
+    </div>
+</div>
+
+
     <!-- ABOUT SECTION -->
-    <div class="row" id="about">
+    <div class="row" id="About">
         <!-- LEFT COLUMN -->
         <div class="col2">
-            <img src="images/computer.jpg" alt="retro computer and game system on desk">
+            <img src="images/circle_computer.png" alt="retro computer and game system on desk">
         </div>
         <!-- RIGHT COLUMN -->
         <div class="col1">
@@ -72,27 +114,28 @@
                     alt="purple github logo"></a>
         </div>
     </div>
+ 
+   
 
     <!-- CONTACT -->
-    <div class="row" id="contact">
-        <!-- LEFT COLUMN -->
-        <div class="col2 col_tall">
-            <img src="images/phone.jpg" alt="pink wall phone">
-        </div>
-        <!-- RIGHT COLUMN -->
-        <div class="col1 col_tall">
-            <h1>Contact</h1>
-            <form action="" method="POST">
-                <label>Name:</label>
-                <input type="text" placeholder="Enter name here">
-                <label>Email:</label>
-                <input type="text" id="email" name="email" placeholder="Enter email here">
-                <label>Message:</label>
-                <input type="text" id="message" name="message" placeholder="Enter message here">
-                <input type="submit" value="SUBMIT">
-            </form>
-        </div>
-    </div>
+     <div id="contact">
+        <button onclick="openForm()" class="Pop_Up_Button">CONTACT</button>
+        <div class="form-popup" id="myForm">
+            <form action="https://formspree.io/f/mwpvnrre" method="POST" class="form-container">
+                <h1>Contact</h1>
+                <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Type your name here" name="name" required>
+                <label for="phone"><b>Phone</b></label>
+                    <input type="text" placeholder="Type your phone number here" name="phone">
+                <label for="email"><b>Email</b></label>		
+                    <input type="text" placeholder="Type your email address here" name="email" required>
+                <label for="message"><b>Message</b></label>
+                    <input type="text" placeholder="Type your message here" name="message">
+                    <button type="submit" class="btn">SUBMIT</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">CLOSE</button>
+                </form>
+            </div>
+         </div>
 
     <!-- FOOTER -->
     <footer>
@@ -100,6 +143,8 @@
         <p class="center">&copy; Allie Schultz 2025</p>
         </p>
     </footer>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>

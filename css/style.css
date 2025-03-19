@@ -3,9 +3,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 /* GENERAL STYLING */
 
+html {
+    scroll-behavior: smooth;
+}
+
 /* BODY */
 body {
     margin: 0%;
+    opacity: 1; 
+    transition: 3s opacity;
+    user-select: none;
+}
+
+body.fade-out {
+    opacity: .1;
 }
 
 /* HEADING 1 ELEMENTS */
@@ -58,32 +69,69 @@ h1 {
 
  
  /* IMAGE ELEMENTS */
- img {
+  .col2 img {
     border-radius: 20px;
     max-width: 100%;
-    height: 340px;
+    max-height: 100%;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto auto auto auto;
     transition: transform 1s;
+    max-width: 90%;
+    max-height: 90%;
  }
 
- img:hover{
+ .col2 img:hover{
     transition: transform 1s;
-	transform: scale(1.1);
+	transform: scale(1.05);
  }
 
  /* IMAGE RESPONSIVE */
- @media screen and (max-width: 576px) {
+ 
+
+.col2 a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 450px; /* Adjust as needed */
+    max-height: 450px; /* Adjust as needed */
+    margin: auto;
+}
+
+.col2 a img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    border-radius: 20px;
+    transition: transform 1s;
+}
+
+.col2 a img:hover {
+    transform: scale(1.05); /* Reduced scale */
+    transition: transform 1s;
+}
+
+@media screen and (max-width: 576px) {
     img {
-        height: 100px;
-        margin-top: 150px;
+        height: auto;
+        
+    }
+
+    .col2 a {
+        max-width: 75px;
+        max-height: 75px;
+    }
+
+    .col2 a img {
+        height: auto;
     }
 }
 
 /* FOOTER */
 footer{
     padding: 2%;
+    background-color: #49a1f9;
+    overflow-x: hidden;
 }
 
 /* END GENERAL STYLING */
@@ -162,16 +210,12 @@ footer{
 #bg_img{
    width: 100%;
    border-radius: 0px;
-   height: 30rem;
+   height: 60rem;
    filter: blur(3px);
    object-fit: cover;
 }
 
-@media screen and (max-width: 576px) {
-    #bg_img {
-        display: none;
-    }
-}
+
 
 /* TEXT OVER VIDEO */
 .img_text{
@@ -201,15 +245,14 @@ footer{
 .col1{
     float: left;
     width: 50%;
-    padding: 10px;
+    padding: 1.6%;
     padding-top: 3%;
     height: 400px;
-    background-color: 
-    #78E0A3;
+    background-color: #78E0A3;
 }
 
 @media screen and (max-width: 576px) {
-    .Column_1 {
+    .col1 {
         overflow: auto;
     }
 }
@@ -217,16 +260,14 @@ footer{
 .col2{
     float: left;
     width: 50%;
-    padding: 10px;
-    padding-top: 1.9%;
+    padding: 1.6%;
     height: 400px;
     background-color: #674894;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.col_tall {
-    padding-top: 3.5%;
-    height: 450px;
-}
 
 .row:after{
     content: "";
@@ -235,53 +276,305 @@ footer{
 }
 /* END TABLE STYLING */
 
-/* CONTACT FORM STYLING */
-input[type=text] {
+
+/* SLIDESHOW STYLING */
+#Slideshow_Background {
+    background: rgba(255, 101, 178, 0.35);
+}
+
+.mySlides {
+    display: none;
+}
+
+#Slideshow_Container {
+    width: 39.5vw;
+    height: auto;
+    padding-top: 4%;
+    position: relative;
+    margin: auto;
+}
+
+#Slideshow_Container a {
+    text-decoration: none;
+}
+
+.Slideshow_Images {
+    vertical-align: middle;
+    height: auto;
+    box-shadow: 0px 3px 8px 8px rgba(255, 90, 172, 0.75);
     width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 5px;
-    margin-bottom: 10px;
-    resize: vertical;
-    font-family: "VT323", serif;
 }
 
-input[type=text]:hover{
-    box-shadow: 0 0 5px #044BD9 inset;
-}
-
-input[type=submit]{
-    background-color: #03A6A6;
-    color: black;
-    font-size: 20px;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
+.Previous, .Next {
     cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: "VT323", serif;
-    letter-spacing: 2px;
-    transition: transform 1.5s;
+    position: absolute;
+    margin: 3px;
+    top: 50%;
+    width: 4vw; /* Set a fixed width */
+    height: 4vw; /* Set a fixed height (equal to width) */
+    display: flex; /*Use flex box to center content*/
+    justify-content: center;
+    align-items: center;
+    color: rgb(98, 86, 234);
+    font-weight: bold;
+    font-size: 1.5vw;
+    border-radius: 100%;
+    user-select: none;
+    transition: 0.6s ease;
 }
 
-input[type=submit]:hover {
-    background-color: #d7005c;
-    color: antiquewhite;
-    transform: scale(1.1);
-    transition: transform 1.5s;
+.Next {
+    right: 0;
+    
 }
 
-form{
-    border-radius: 5px;
-    background-color: f2f2f2;
-    padding: 10px;
-    font-family: "VT323", serif;
+.Previous:hover, .Next:hover {
+    background-color: rgba(255, 251, 0, 0.8);
+    color: rgb(254, 35, 122);
 }
-/* END CONTACT FORM STYLING */
+
+.text {
+    color: rgb(255, 255, 0);
+    font-family: "VT323", serif;
+    font-size: 2vw;
+    padding: 1vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(58, 10, 125, 0.75);
+    
+}
+
+.dot {
+    cursor: pointer;
+    height: 1vw;
+    width: 1vw;
+    margin: .25vw;
+    background-color: #2ad404;;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    z-index: 1;
+}
+
+.active, .dot:hover {
+    background-color: black;
+}
+
+.fade {
+    animation-name: fade; 
+    animation-duration: 1.5s;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4;}
+    to {opacity: 1;} 
+}
+
+@keyframes fade {
+    from {opacity: .4;} 
+    to {opacity: 1;}
+}
+
+/* CONTACT FORM STYLING */
+.Pop_Up_Button {
+    position: fixed;
+    font-family: "Press Start 2P", serif;
+    bottom: 1.75vw;
+    right: 1.75vw;
+    width: 25vw; 
+    background-color: #F25C05;
+    color: black; 
+    border: solid black; 
+    cursor: pointer; 
+    -webkit-animation: movePopup 5s; 
+    animation: movePopup 5s;
+}
+
+@keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
+}
+
+@-webkit-keyframes movePopup {
+    from {right: -40vw;} 
+    to {right: 1.75vw;}
+}
+
+.form-popup {
+    z-index: 8; 
+    display: none;
+    font-family: "VT323", serif;
+    position: fixed; 
+    bottom: .5vw; 
+    right: .5vw; 
+}
+
+/* Form styling */
+.form-container {
+    max-width: 49vw; 
+    padding: 1vw; 
+    background-color: white; 
+}
+
+.form-container input[type=text] {
+    width: 100%; 
+    padding: .93vw; 
+    margin: .6vw 0 .6vw 0;
+    border: none;
+    background: Gainsboro;
+    font-size: 1vw;
+}
+
+
+button {
+    font-family: "Press Start 2P", serif;
+    letter-spacing: .3vw; 
+    font-size: 1.5vw; 
+    font-weight: bold; 
+    padding: 1.5vw; 
+    cursor: pointer; 
+    width: 100%; 
+    height: auto; 
+    border-radius: 20px;
+}
+
+button:hover, .form-container .btn:hover {
+    color: white; 
+    background-color: #b34404; 
+    transition-duration: 1s; 
+    -webkit-transition-duration: 1s; 
+    border-color: silver;
+}
+
+/* Submit button */
+.form-container .btn {
+    background-color: #2ad404; 
+    color: white;
+    border-color: black;
+    margin-bottom: 1vh;
+}
+
+.form-container .btn:hover {
+    background-color: #1d9602;
+}
+
+.form-container .cancel {
+    background-color: rgb(255, 0, 89);
+    color: white;
+    border-color: gray;
+}
+
+.form-container .cancel:hover {
+    color: white;
+    background-color: rgb(193, 3, 70);
+    transition-duration: 1s;
+    -webkit-transition-duration: 1s;
+    border-color: black;
+}
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 527px) {
+    p {
+        font-size: 3.75vw;
+    }
+}
+
+@media screen and (min-width: 528px) and (max-width: 660px) {
+    p {
+        font-size: 3.5vw;
+    }
+}
+
+@media screen and (min-width: 661px) and (max-width: 799px) {
+    p {
+        font-size: 2.75vw;
+    }
+}
+
+@media screen and (min-width: 800px) and (max-width: 924px) {
+    p {
+        font-size: 2.5vw;
+    }
+}
+
+@media screen and (min-width: 925px) and (max-width: 1050px) {
+    p {
+        font-size: 2.25vw;
+    }
+}
+
+@media screen and (min-width: 1051px) and (max-width: 1310px) {
+    p {
+        font-size: 2vw;
+    } 
+}
+
+@media screen and (min-width: 1311px) and (max-width: 1535px) {
+    p {
+        font-size: 1.75vw;
+    }
+}
+
+@media screen and (min-width: 1536px) and (max-width: 2269px) {
+    p {
+        font-size: 1.5vw;
+    }
+}
+
+@media screen and (min-width: 2270px) {
+    p {
+        font-size: 1.35vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .navbar a{
+        width: 20%; 
+        font-size: 2.7vw;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .title {
+        font-size: 4.5vw;
+    }
+}
+
+@media screen and (max-width: 1724px) {
+    .col1 {
+        height: 550px;
+    }
+    .col2 {
+        height: 550px;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+    }
+    .col2 a {
+        max-width: 400px; 
+        max-height: 400px; 
+    }
+}
+
+@media screen and (min-width: 1725px) {
+    .col1 {
+        height: 550px;
+    }
+    .col2 {
+        height: 550px;
+    }
+}
+
+
+@media screen and (min-width: 2000px) {
+    h1{
+        margin-top: 0;
+    }
+}    
 
    
    
