@@ -43,11 +43,20 @@ h1 {
  }
 
  /* PARAGRAPH ELEMENTS */
- p{
+ p {
     font-family: "VT323", serif;
     text-align: justify;
     letter-spacing: 2px;
     font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+ }
+
+ ul {
+    font-family: "VT323", serif;
+    text-align: justify;
+    letter-spacing: 2px;
+    font-size: 20px;
     padding-left: 20px;
     padding-right: 20px;
  }
